@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="css_icon.ico" type="image/x-icon">
+    <title>overflow, float</title>
+    <style>
+        * { box-sizing: border-box; margin: 0%; padding: 0%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+        .main {
+            width: 96%; height: auto; background-color: #fff;
+            margin: 10px; text-align: center; margin-left: auto; margin-right: auto;
+        }
+        h2 { background-color: rgb(228, 228, 228); padding: 7px; margin-bottom: 15px;}
+        b { color: red; font-weight: 400;}
+
+        p { margin: -3px 0px 15px 0px; text-align: left; line-height:30px; }
+
+        a { text-decoration: none; color: #fff;}
+        ul { text-align: left; margin: 5px 5px 0px 30px ; line-height:30px; list-style-type: none ;
+            background-color: rgb(233, 233, 233); width: 88%; padding-left: 10px;margin-bottom: 20px; border-left: 3px solid rgb(6, 202, 6);}
+        
+        li:nth-child(odd) { background-color: rgb(216, 216, 216);}
+
+        li::before { content: "\2022"; display: inline-block; font-weight: 600; width: 20px;}
+
+        button:hover { transform: scale(1.1); box-shadow: 1px 3px  5px rgb(179, 179, 179);}
+        
+        input:hover  { transform: scale(1.1); box-shadow: 1px 3px  5px rgb(179, 179, 179); 
+        font-size: 25px; }
+
+        table { width: 100%; height:auto; text-align: left;background-color: rgb(214, 214, 214);
+            padding: 10px; margin: 30px auto; border-collapse:collapse; }
+        
+        th, td {padding: 10px; margin: auto;}
+
+        tr { background-color: rgb(165, 165, 165);}
+        
+        tr:nth-child(odd){background-color: rgb(192, 192, 192);}
+
+        .div { width: 100px; height: 100px;}
+        
+        .one { background: rgb(96, 255, 144); background: palegreen; float: right;}
+
+        .two { background: rgb(255, 168, 127); float: left;}
+
+        
+    </style>
+    
+</head>
+<body>
+    <div class="main">
+        <h2>Overflow</h2>
+        <p style="width: 90%; height: 200px;  padding: 10px; border: 2px solid grey; margin: -3px 0px 15px 0px; text-align: justify; line-height:30px; overflow: auto;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam quo maxime assumenda magni mollitia architecto, perferendis excepturi ipsa dicta sunt voluptate molestiae commodi et doloribus nisi reiciendis eius delectus in? Quasi minus in sapiente asperiores. Laboriosam illo ex optio quod, ratione tempora voluptate saepe, sed soluta rem excepturi aperiam placeat molestias obcaecati recusandae at magni eos. Explicabo facilis beatae quidem! Ullam distinctio expedita illo dolorum magni officia corrupti molestias voluptatibus quia in? Non, laboriosam nemo. Autem esse placeat, nam debitis eum culpa dolorem quam quia sed exercitationem tempora molestias sint? Reprehenderit illum tenetur neque fugit voluptates sit fugiat numquam minus ut iste, reiciendis omnis. Unde quia, illo quo necessitatibus eius suscipit consectetur rerum, hic quaerat totam tempora dolores non illum. Aperiam quasi inventore repellendus quo temporibus quisquam voluptatem aliquid officia enim magnam accusantium, voluptas quos explicabo facilis obcaecati exercitationem amet beatae quia corporis cumque. Harum expedita fuga tempora dicta dolore?</p>
+
+        <h2>The float Property</h2>
+        <p>The <code class="w3-codespan">float</code> property is used for positioning and formatting content e.g. let an image float left to the text in a container.</p>
+        <p>The <code class="w3-codespan">float</code> property can have one of the  following values:</p>
+        <ul>
+            <li>left - The element floats to the left of its container</li>
+            <li>right - The element floats to the right of its container</li>
+            <li>none - The element does not float (will be displayed just where it occurs in the text). This is default</li>
+            <li>inherit - The element inherits the float value of its parent</li>
+        </ul>
+
+        <div class="div one">float: right;</div>
+        <div class="div two">float: left;</div>
+
+        
+    </div>
+</body>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="css_icon.ico" type="image/x-icon">
+    <title>transition</title>
+    <style>
+        body{
+            width: 96%; margin-left: auto;
+            height: 96%; margin-right: auto;
+            font-family:'Courier New', Courier, monospace;
+        }
+
+        .example {
+            display:block;
+            background-color: rgb(255, 255, 255);
+            width: 400px;
+            height: 250px;
+            margin: 30px auto;
+            cursor: progress;
+            transition:  width 1s, height 2s;
+            transition-timing-function: linear;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgb(95, 95, 95),
+            -5px -5px 10px rgb(194, 194, 194);
+        }
+        .example:hover{
+            width: 330px; height: 200px;
+        }
+
+        .example2 {
+            display: block;
+            background-color: rgb(255, 255, 255);
+            width: 300px;
+            height: 200px;
+            margin: 30px auto;
+            cursor: progress;
+            color: rgb(35, 255, 101);
+            transition:  width 1s, height 2s, transform 2s;
+            transition-timing-function: inherit;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgb(95, 95, 95),
+            -5px -5px 10px rgb(194, 194, 194);
+        }
+        .example2:hover{
+            width: 230px; height: 230px; transform: rotate(360deg);
+        }
+
+        .example2:hover::after { margin: auto;}
+
+        .h1v1{
+            background-color: none;
+            color: rgb(35, 255, 101);
+            text-align: center;
+            font-size: 30px;
+            transition-duration: 2s;
+            transition-property: initial;
+            transform: translatey(300%);
+        }
+
+        .h1v2{
+            background-color: none;
+            color: rgb(35, 255, 101);
+            text-align: center;
+            font-size: 20px;
+            padding: 3px;
+            transition-duration: 2s;
+            transition-property: initial;
+            transform: translatey(150%);
+        }
+
+
+        h2 { background-color: rgb(228, 228, 228); padding: 7px; margin-bottom: 15px;}
+        
+        b { color: red; font-weight: 600;}
+
+        p { margin: -3px 0px 15px 0px; text-align: left; line-height:30px; }
+
+        a { text-decoration: none; color: #fff;}
+        
+        ul { text-align: left; margin: 5px 5px 0px 30px ; line-height:40px; list-style-type: none ;
+            font-weight: 600; background-color: rgb(145, 145, 145); width: 88%; padding-left: 10px;margin-bottom: 20px; border-left: 3px solid rgb(6, 202, 6);}
+        
+        li:nth-child(odd) { background-color: rgb(173, 173, 173);}
+
+        li::before { content: "\2022"; display: inline-block; font-weight: 600; width: 20px;}
+
+        button:hover { transform: scale(1.1); box-shadow: 1px 3px  5px rgb(179, 179, 179);}
+        
+        input:hover  { transform: scale(1.1); box-shadow: 1px 3px  5px rgb(179, 179, 179); 
+        font-size: 25px; }
+
+        table { width: 100%; height:auto; text-align: left;background-color: rgb(214, 214, 214);
+            font-weight: 600; padding: 10px; margin: 20px auto; border-collapse:collapse; }
+        
+        th, td {padding: 10px; margin: auto;}
+
+        tr { color: white; background-color: rgb(173, 173, 173);}
+        
+        tr:nth-child(odd){color: white; background-color: rgb(145, 145, 145);}
+
+
+    </style>
+</head>
+<body>
+        <h3>Hover over the div element below:</h3>
+    <div class="example">
+        <h1 class="h1v1">Css transition</h1>
+    </div>
+
+    <h2>CSS Transitions</h2>
+    <p>CSS transitions allows you to change property values smoothly, over a given duration.</p>
+    <p>In this chapter you will learn about the following properties:</p>
+    
+    <h2>Shorthand property <b>transition</b>: <br> <br> <span style="color: rgb(1, 206, 1);"> transition: width 2s linear 1s;</span></h2>
+
+    <ul>
+        <li>transition</></li>
+        <li>transition-delay</b></li>
+        <li>transition-duration</b></li>
+        <li>transition-property</b></li>
+        <li>transition-timing-function</b></li>
+    </ul>
+
+    <h3>Hover over the div element below:</h3>
+    <div class="example2">
+        <h1 class="h1v2">Transition + Transformation</h1>
+    </div>
+    <p>This following example adds a transition effect to the transformation.</p>
+
+    <h2>CSS Transition Properties</h2>
+    <p>CSS Transition Properties</p>
+    <table>
+           <tr>
+              <th>Property</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td><a href="/cssref/css3_pr_transition.asp">transition</a></td>
+              <td>A shorthand property for setting the four transition properties into a single property</td>
+            </tr>
+            <tr>
+              <td><a href="/cssref/css3_pr_transition-delay.asp">transition-delay</a></td>
+              <td>Specifies a delay (in seconds) for the transition effect</td>
+              </tr>
+            <tr>
+              <td><a href="/cssref/css3_pr_transition-duration.asp">transition-duration</a></td>
+              <td>Specifies how many seconds or milliseconds a transition effect takes to complete</td>
+            </tr>
+            <tr>
+             <td><a href="/cssref/css3_pr_transition-property.asp">transition-property</a></td>
+             <td>Specifies the name of the CSS property the transition effect is for</td>
+            </tr>
+            <tr>
+             <td><a href="/cssref/css3_pr_transition-timing-function.asp">transition-timing-function</a></td>
+             <td>Specifies the speed curve of the transition effect</td>
+            </tr>
+    </table>
+
+</body>
+</html>

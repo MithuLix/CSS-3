@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="css_icon.ico" type="image/x-icon">
+    <title>Position</title>
+    <style>
+        * { box-sizing: border-box; margin: 0%; padding: 0%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+        .main {
+            width: 96%; height: auto; background-color: #fff;
+            margin: 10px; text-align: center; margin-left: auto; margin-right: auto;
+        }
+        h2 { background-color: rgb(228, 228, 228); padding: 7px; margin-bottom: 15px;}
+        b { color: red; font-weight: 400;}
+        p { margin: -3px 0px 15px 0px; text-align: left; line-height:30px;}
+        a { text-decoration: none; color: #fff;}
+        ul { text-align: left; margin: 5px 5px 0px 30px ; line-height:30px; list-style-type: none ;
+            background-color: rgb(233, 233, 233); width: 200px; padding-left: 10px;margin-bottom: 20px; border-left: 3px solid rgb(6, 202, 6);}
+        
+        li:nth-child(odd) { background-color: rgb(216, 216, 216);}
+
+        li::before { content: "\2022"; display: inline-block; font-weight: 600; width: 20px;}
+
+        button { width: 200px; height: 40px; cursor: pointer; margin: 15px; padding: 5px;
+            background-color: rgb(228, 228, 228); border: none; border-radius: 10px;
+            font-size: 20px;display: inline; transition: .1s; 
+        }
+        input { width: 200px; height: 40px; cursor: pointer; margin: 15px; padding: 5px;
+            background-color: rgb(228, 228, 228); border: none; border-radius: 10px;
+            font-size: 20px;display: inline; transition: .1s;  text-align: center;
+        }
+        button:hover { transform: scale(1.1); box-shadow: 1px 3px  5px rgb(179, 179, 179);}
+        
+        input:hover  { transform: scale(1.1); box-shadow: 1px 3px  5px rgb(179, 179, 179); 
+        font-size: 25px; }
+
+        table { width: 100%; height:auto; text-align: left;background-color: rgb(214, 214, 214);
+            padding: 10px; margin: 30px auto; border-collapse:collapse; }
+        
+        th, td {padding: 10px; margin: auto;}
+
+        tr { background-color: rgb(165, 165, 165);}
+        
+        tr:nth-child(odd){background-color: rgb(192, 192, 192);}
+
+        .box { width: 150px; height: 150px;}
+
+        .top { background: palegreen; position: relative; z-index: 100;}
+
+        .center { background: lightblue;position: relative; transform: translate(-30%, -90%); 
+            z-index: 200; left: 100px; top: 50px; 
+            }
+
+        .bottom { background: salmon; position: absolute; transform: translate(50%, 1880%); 
+            z-index: 300; left: 50px; top: 100px; 
+            }
+
+        .bottom2 { background: rgb(248, 99, 0); position: fixed; transform: translate(80%, 290%); 
+            z-index: 400; left: 50px; top: 100px; display: block;
+            }
+            
+        
+    </style>
+    
+</head>
+<body>
+    <div class="main">
+        <h2>CSS Layout - The position Property</h2>
+        <p>The <b>position</b> property specifies the type of positioning method used for an element (static, relative, fixed, absolute or sticky).</p>
+        <p>The <b>position</b> property specifies the type of positioning method used for an element.</p>
+        <p>There are five different position values:</p>
+        <ul>
+            <li><b>static</b></li>
+            <li><b>relative</b></li>
+            <li><b>fixed</b></li>
+            <li><b>absolute</b></li>
+            <li><b>sticky</b></li>
+        </ul>
+        <p>Elements are then positioned using the top, bottom, left, and right properties. However, these properties will not work unless the <b>position</b> property is set first. They also work differently depending on the position value.</p>
+        
+        <h2>position: static</h2>
+            <p>HTML elements are positioned static by default.</p>
+            <p>Static positioned elements are not affected by the top, bottom, left, and right properties.</p>
+            <p>An element with <b>position: static</b> is not positioned in any special way; it is always positioned according to the normal flow of the page:</p>
+            <div style="background-color: rgb(5, 139, 0); position: static; width: 400px; height:200px; margin-bottom: 30px;">
+            </div>
+
+        <h2>position: relative</h2>
+            <p>An element with <b>position: relative</b> is positioned relative to its normal position.</p>
+            <p>Setting the top, right, bottom, and left properties of a relatively-positioned element will cause it to be adjusted away from its normal position. Other content will not be adjusted to fit into any gap left by the element.</p>
+            <div style="background-color: rgb(5, 139, 0); position: relative; width: 400px; height: 200px; margin-bottom: 30px;">
+                <p>This &lt;div&gt; element has position: relative;</p>
+                <div style="background-color: rgb(7, 207, 0); position: absolute; left: 50px; width: 200px; height: 100px;">
+                    <p>This &lt;div&gt; element has position: absolute;</p>
+                 </div>
+            </div>
+
+            <h2>position: absolute</h2>
+            <p>An element with <b>position: absolute</b> is positioned relative to the nearest positioned ancestor (instead of positioned relative to the viewport, like fixed).</p>
+            <p>However; if an absolute positioned element has no positioned ancestors, it uses the document body, and moves along with page scrolling.</p>
+            <p><strong>Note:</strong> A "positioned" element is one whose position is anything except <b>static</b>.</p>
+            <div style="background-color: rgb(5, 139, 0); position: relative; width: 400px; height: 200px; margin-bottom: 30px;">
+                <p>This &lt;div&gt; element has position: relative;</p>
+                <div style="background-color: rgb(7, 204, 0); position: absolute; top: 80px; right: 0; width: 200px; height: 100px;">
+                    <p>This &lt;div&gt; element has position: absolute;</p>
+                </div>
+            </div>
+
+        <h2>position: fixed</h2>
+            <p>An element with <b>position: fixed</b> is positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled. The top, right, bottom, and left properties are used to position the element.</p>
+            <p>A fixed element does not leave a gap in the page where it would normally have been located.</p>
+            <p>Notice the fixed element in the lower-right corner of the page. Here is the CSS that is used:</p>
+            <div style="background-color: rgb(5, 138, 0); position: fixed; width: 400px; height:200px;  margin-bottom: 30px;">
+            </div>
+
+        <h2>position: sticky</h2>
+            <p>An element with <b>position: sticky</b> is positioned based on the user's scroll position.</p>
+            <p>A sticky element toggles between <b>relative</b> and <b>fixed</b>, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed).</p>
+            <div style="background-color: rgb(5, 139, 0); position: sticky; width: 400px; height: 200px; margin-bottom: 30px;">
+            </div>
+
+            <h2>Z-Index : Definition and Usage</h2>
+        <p>The <b>z-index</b> property specifies the stack order of an element.</p>
+        <p>An element with greater stack order is always in front of an element with a lower stack order.</p>
+        <p><b>Note:</b> <b>z-index</b> only works on positioned elements (position: absolute, position: relative, position: fixed, or position: sticky).</p>
+        
+        <table>
+                <tr>
+                  <th>Default value:</th>
+                  <td>auto</td>
+                </tr>
+                <tr>
+                  <th>Inherited:</th>
+                  <td>no</td>
+                </tr>
+                <tr>
+                  <th>Animatable:</th>
+                  <td>yes.>Read about <em>animatable</em></td>
+                </tr>
+                <tr>
+                  <th>Version:</th>
+                  <td>CSS2</td>
+                </tr>
+                <tr>
+                  <th>JavaScript syntax:</th>
+                  <td><i>object</i>.style.zIndex="-1"</td>
+                </tr>
+        </table>
+
+            <div class="wrap">
+                <div class="box top">Z-index 1, position: relative</div>
+                <div class="box center">Z-index 2, position: relative</div>
+                <div class="box bottom">Z-index 3, position: absolute</div>
+                <div class="box bottom2">Z-index 4, position: fixed</div>
+
+            </div>
+        </div>
+</body>

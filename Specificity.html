@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="css_icon.ico" type="image/x-icon">
+    <title>Specificity</title>
+    <style>
+
+        * { box-sizing: border-box; margin: 0%; padding: 0%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+        .main {
+            width: 96%; height: auto; background-color: #fff;
+            margin: 10px; margin-left: auto; margin-right: auto;
+        }
+        h2 { background-color: rgb(228, 228, 228); padding: 7px; margin-bottom: 15px;}
+        b { color: red; font-weight: 400;}
+        p { margin: -3px 0px 15px 0px; text-align: left; line-height:30px;}
+        a { text-decoration: none; color: #fff;}
+
+        ul { text-align: left; margin: 5px 0px 0px 30px ; line-height:30px; list-style-type: none ;
+            background-color: rgb(233, 233, 233); width: 90%; padding: 10px; margin-bottom: 20px; border-left: 3px solid rgb(6, 202, 6);
+            }
+        
+        li::before { content: "\2022"; display: inline-block; font-weight: 600; width: 20px;}
+
+        button { width: 200px; height: 40px; cursor: pointer; margin: 15px; padding: 5px;
+            background-color: rgb(228, 228, 228); border: none; border-radius: 10px;
+            font-size: 20px;display: inline; transition: .1s; 
+        }
+        input { width: 200px; height: 40px; cursor: pointer; margin: 15px; padding: 5px;
+            background-color: rgb(228, 228, 228); border: none; border-radius: 10px;
+            font-size: 20px;display: inline; transition: .1s;  text-align: center;
+        }
+        button:hover { transform: scale(1.1); box-shadow: 1px 3px  5px rgb(179, 179, 179);}
+        
+        input:hover  { transform: scale(1.1); box-shadow: 1px 3px  5px rgb(179, 179, 179); 
+        font-size: 25px; }
+
+        table { width: 100%; height:auto; text-align: left;background-color: rgb(214, 214, 214);
+            padding: 10px; margin: 30px auto; border-collapse:collapse; }
+        
+        th, tr, td {padding: 10px; margin: auto;}
+
+        th { background-color: rgb(165, 165, 165);}
+        
+        tr:nth-child(odd){background-color: rgb(192, 192, 192);}
+
+        strong { color: rgb(0, 204, 0);}
+
+        h1 { margin: 20px;}
+        
+        h3 {margin: 10px 0px 10px 0px;}
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h2> What is Specificity?</h2>
+        <p>If there are two or more conflicting CSS rules that point to the same element, the browser follows some rules to determine which one is most specific and therefore wins out.</p>
+        <p>Think of specificity as a score/rank that determines which style declarations are ultimately applied to an element.</p>
+        <p>The universal selector (*) has low specificity, while ID selectors are highly specific!</p>
+        <h2>The <strong>!important</strong> exception</h2>
+        <p>When an <b>important</b> rule is used on a style declaration, this declaration overrides any other declarations. Although technically <code>!important</code> has nothing to do with specificity, it interacts directly with it. Using <code>!important,</code> however, is <strong>bad practice</strong> and should be avoided because it makes debugging more difficult by breaking the natural <a href="/en-US/docs/Web/CSS/Cascade">cascading</a> in your stylesheets. When two conflicting declarations with the <code>!important</code> rule are applied to the same element, the declaration with a greater specificity will be applied.</p>
+        <p><strong>Some rules of thumb:</strong></p>
+        <ul>
+            <li><strong>Always</strong> look for a way to use specificity before even considering <code>!important</code></li>
+            <li><strong>Only</strong> use <code>!important</code> on page-specific CSS that overrides foreign CSS (from external libraries, like Bootstrap or normalize.css).</li>
+            <li><strong>Never</strong> use <code>!important</code> when you're writing a plugin/mashup.</li>
+            <li><strong>Never</strong> use <code>!important</code> on site-wide CSS.</li>
+        </ul>
+        <p><strong>Instead of using <b>!important</b>, consider:</strong></p>
+        <h2>How !important can be used:</h2>
+        <h3>Overriding inline styles</h3>
+        <p>Your global CSS file that sets visual aspects of your site globally may be overwritten by inline styles defined directly on individual elements. Both inline styles and !important are considered very bad practice, but sometimes you need the latter to override the former.</p>
+
+        <h2>Specificity Hierarchy </h2>
+        <p>Every selector has its place in the specificity hierarchy. There are four categories which define the specificity level of a selector:</p>
+        <p><strong>Inline styles</strong> - An inline style is attached directly to the element to be styled. Example: &lt;h1 style="color: #ffffff;"&gt;.</p>
+        <p><strong>IDs</strong> - An ID is a unique identifier for the page elements, such as #navbar.</p>
+        <p><strong>Classes, attributes and pseudo-classes</strong> - This category includes .classes, [attributes] and pseudo-classes such as :hover, :focus etc.</p>
+        <p><strong>Elements and pseudo-elements</strong> - This category includes element names and pseudo-elements, such as h1, div, :before and :after.</p>
+        <h2>How to Calculate Specificity?</h2>
+        <p>Memorize how to calculate specificity!</p>
+        <p>Start at 0, add 1000 for style attribute, add 100 for each ID, add 10 for each attribute, class or pseudo-class, add 1 for each element name or pseudo-element.</p>
+        <h2>Specificity Rules</h2>
+        <p><strong>Equal specificity: the latest rule counts </strong>- If the same rule is written twice into the external style sheet, then the lower rule in the style sheet is closer to the element to be styled, and therefore will be applied:</p>
+        <p><strong>ID selectors have a higher specificity than attribute selectors</strong> - Look at the following three code lines:</p>
+        
+
+
+    
+    
+    
+    
+    
+    </div>
+</body>

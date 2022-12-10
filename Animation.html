@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animation</title>
+    <link rel="shortcut icon" href="css_icon.ico" type="image/x-icon">
+    <style>
+
+        * { box-sizing: border-box;
+            padding: 0%;
+            margin: 0%;
+        }
+        body { width: 96%; 
+            height: auto; 
+            font-family: open sans;
+            margin-left: auto; 
+            margin-right: auto;
+        }
+
+        h2 { background-color: rgb(214, 214, 214); 
+            padding: 5px; 
+            margin: 10px 0px 10px 0px; 
+        }
+        
+        p { line-height: 25px; }
+
+        ul { display: block; 
+            background-color: rgb(135, 198, 240); 
+            width: 350px; 
+            height: auto; 
+            padding: 30px;
+            line-height: 20px; 
+            color: white;
+            margin: 10px 0px 10px 0px;
+        }
+
+        b { color : rgb(248, 248, 248) }
+
+        strong { color: rgb(0, 214, 36); 
+            font-size: 20px;
+        }
+
+        button {
+            width: 100px; 
+            height: 25px; 
+            background-color: rgba(24, 189, 3, 0.829); 
+            cursor: pointer;
+            border: none; 
+            border-radius: 5px; 
+            box-shadow: 0 2px 15px rgba(172, 172, 172, 0.7); 
+        }
+        
+        .CssAnimation {
+            width: 60px; 
+            height: auto;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin: 10px 0px 10px 0px;
+            border-radius: 10px;
+            background-image: initial;
+            background-color: rgb(0, 110, 255);
+            animation-name: CssAnimation;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes CssAnimation {
+            0% { background-color: red; margin: 10px 0px 20px 0px ;}
+            50% { background-color: rgb(204, 0, 211);  margin: 20px 0px 20px 90% ; transform: rotate(360deg);}
+            100% { background-color: rgb(24, 170, 255);  margin: 10px 0px 20px 0px ; }
+        }
+        
+        .keyframe {
+            width: 220px; 
+            height: auto;
+            text-align: center;
+            color: white;
+            padding: 10px;
+            margin: 10px 0px 10px 0px;
+            border-radius: 10px;
+            background-color: rgb(0, 110, 255);
+            animation-name: keyframe;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes keyframe{
+            from { background-color: rgb(0, 110, 255);}
+            to { background-color: yellowgreen;}
+        }
+
+        .keyframe1 {
+            transform: s;
+            width: 220px; 
+            height: auto;
+            text-align: center;
+            color: white;
+            padding: 10px;
+            margin: 10px 0px 10px 0px;
+            border-radius: 10px;
+            background-color: red;
+            animation-name: keyframe1;
+            animation-duration: 5s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1)
+        }
+
+        @keyframes keyframe1 {
+            0% { background-color: rgb(2, 191, 248); margin: 0px 0px 0px 0px ;}
+            20% { background-color: rgb(230, 46, 40); margin: 0px 0px 50px 60% ;}
+            40% { background-color: rgb(48, 30, 218); margin: 50px 0px 10px 60% ;}
+            60% { background-color: rgb(7, 218, 53); margin: 50px 50px 10px 0px ;}
+            80% { background-color: rgb(247, 0, 255); margin: 0px 0px 0px 0px ;}
+
+        }
+
+
+        }
+    </style>
+</head>
+<body>
+        <h2>CSS Animations</h2>
+        <p>CSS allows animation of HTML elements without using JavaScript or Flash!</p>
+        <div class="CssAnimation">CSS</div>
+        <div class="keyframe">keyframe Animation</div>  
+        <div class="keyframe1">keyframe Animation 1</div>
+
+        <p>In this chapter you will learn about the following properties:</p>
+        <ul>
+            <li><b>@keyframes</b></li>
+            <li><b>animation-name</b></li>
+            <li><b>animation-duration</b></li>
+            <li><b>animation-delay</b></li>
+            <li><b>animation-iteration-count</b></li>
+            <li><b>animation-direction</b></li>
+            <li><b>animation-timing-function</b></li>
+            <li><b>animation-fill-mode</b></li>
+            <li><b>animation</b></li>
+        </ul>
+
+        <h2>Animation Shorthand Property</h2>
+        <div style="background-color: rgb(218, 218, 218); width: 100%; height: 100px; padding: 10px;">
+            <p><strong>Example</strong></p>
+            <p><b>animation:</b> <span style="color: green;">example 5s linear 2s infinite alternate;</span></p>
+        </div>
+        <h2>The @keyframes Rule</h2>
+        <p>When you specify CSS styles inside the <b>@keyframes</b> rule, the animation will gradually change from the current style to the new style at certain times.</p>
+        <p>To get an animation to work, you must bind the animation to an element.</p>
+
+        <h2>Delay an Animation</h2>
+        <p>The <b>animation-delay</b> property specifies a delay for the start of an animation.</p>
+
+        <h2>Specify the Speed Curve of the Animation</h2>
+        <p>The <b>animation-timing-function</b> property specifies the speed curve of the animation.</p>
+        <p>The animation-timing-function property can have the following values:</p>
+        <ul style="width: 100%;">
+            <li><b>ease</b> - Specifies an animation with a slow start, then fast, then end slowly (this is default)</li>
+            <li><b>linear</b> - Specifies an animation with the same speed from start to end</li>
+            <li><b>ease-in</b> - Specifies an animation with a slow start</li>
+            <li><b>ease-out</b> - Specifies an animation with a slow end</li>
+            <li><b>ease-in-out</b> - Specifies an animation with a slow start and end</li>
+            <li><b>cubic-bezier(n,n,n,n)</b> - Lets you define your own values in a cubic-bezier function</li>
+        </ul>
+
+
+</body>
+</html>
